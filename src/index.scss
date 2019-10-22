@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap");
+$primary-font: #707070;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: #f4f7f4 0% 0% no-repeat padding-box;
+}
+
+.container {
+  padding: 40px 23px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h2 {
+  margin: 0;
+  color: $primary-font;
+  text-align: center;
+  font-family: "Roboto";
+  font-size: 44px;
+  font-weight: normal;
+}
+
+p {
+  margin: 32px 0;
+  color: $primary-font;
+  text-align: center;
+  font-size: 24px;
+}
+
+.start-button {
+  padding: 11px 25px;
+  border: none;
+  border-radius: 4px;
+  color: #ffffff;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  background: transparent linear-gradient(90deg, #43a546 0%, #28712b 100%) 0% 0%
+    no-repeat padding-box;
+}
+
+#progress-bar {
+  margin: 79px 0 0 0;
+  width: 100%;
+}
+
+.race-text {
+  text-align: left;
+  margin: 24px 0;
+}
+
+.typearea {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  label {
+    margin-bottom: 5px;
+    color: #333333de;
+    font-size: 16px;
+    font-weight: 700;
+  }
+  #input-field {
+    border: 1px solid #464646;
+  }
+}
