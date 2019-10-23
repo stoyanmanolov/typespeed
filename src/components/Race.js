@@ -1,4 +1,5 @@
 import React from "react";
+import { Redirect } from "react-router-dom";
 import { Input, Progress } from "semantic-ui-react";
 
 const paragraphs = [
@@ -10,14 +11,23 @@ const paragraphs = [
 class Race extends React.Component {
   constructor() {
     super();
-    this.state = { text: "", userInput: "", greenChars: "", redChar: "" };
+    this.state = {
+      text: "",
+      initialTextLength: 0,
+      userInput: "",
+      greenChars: "",
+      redChar: ""
+    };
     this.globalCounter = 0;
   }
 
   componentDidMount = () => {
     let randomParagraph =
       paragraphs[Math.floor(Math.random() * paragraphs.length)];
-    this.setState({ text: randomParagraph });
+    this.setState({
+      text: randomParagraph,
+      initialTextLength: randomParagraph.length
+    });
   };
 
   handleChange = event => {
@@ -26,8 +36,7 @@ class Race extends React.Component {
   };
 
   compare = (userInput, text) => {
-    let greenChars = this.state.greenChars;
-    let redChar = this.state.redChar;
+    let { greenChars, redChar } = this.state;
     let inputLastChar = userInput[this.globalCounter];
     let textFirstChar = text[0];
     let newText = "";
@@ -72,11 +81,26 @@ class Race extends React.Component {
     }
   };
 
+  calculatePercentage = () => {
+    const { initialTextLength } = this.state;
+    if (initialTextLength && this.globalCounter > 0) {
+      return (this.globalCounter / initialTextLength) * 100;
+    }
+  };
+
   render() {
+    if (this.state.greenChars && this.state.text.length === 0) {
+      console.log(this.state.text.length);
+      return <Redirect to="end" />;
+    }
     return (
       <div className="container">
         <h2>Better go fast...</h2>
-        <Progress id="progress-bar" percent="11" />
+        <Progress
+          id="progress-bar"
+          percent={this.calculatePercentage()}
+          indicating
+        />
         <p className="race-text">
           <span style={{ color: "green" }}>{this.state.greenChars}</span>
           <span style={{ backgroundColor: "LightCoral" }}>
