@@ -6,10 +6,13 @@ const paragraphs = [
 ];
 
 // Used for indexing elements used in comparisons
-let globalCounter = 0;
 
 class Race extends React.Component {
-  state = { text: "", userInput: "", greenChars: "", redChar: "" };
+  constructor() {
+    super();
+    this.state = { text: "", userInput: "", greenChars: "", redChar: "" };
+    this.globalCounter = 0;
+  }
 
   componentDidMount = () => {
     let randomParagraph =
@@ -25,34 +28,44 @@ class Race extends React.Component {
   compare = (userInput, text) => {
     let greenChars = this.state.greenChars;
     let redChar = this.state.redChar;
-    let newText = "";
-    let inputLastChar = userInput[globalCounter];
+    let inputLastChar = userInput[this.globalCounter];
     let textFirstChar = text[0];
+    let newText = "";
 
-    if (inputLastChar === textFirstChar) {
-      //If characters match correctly
+    const approveChar = () => {
       greenChars += inputLastChar;
-      globalCounter++;
+      this.globalCounter++;
       newText = text.substring(1);
       this.setState({
         greenChars,
         text: newText,
         redChar: ""
       });
+    };
+
+    const backtrack = () => {
+      this.globalCounter--;
+      this.setState({
+        greenChars: greenChars.substring(0, greenChars.length - 1),
+        text: greenChars.charAt(greenChars.length - 1) + text,
+        redChar: ""
+      });
+    };
+
+    if (inputLastChar === textFirstChar) {
+      //Entered correct character
+      approveChar();
     } else {
+      //Entered incorrect character
       if (
-        userInput[globalCounter - 2] === greenChars[globalCounter - 2] &&
+        userInput[this.globalCounter - 2] ===
+          greenChars[this.globalCounter - 2] &&
         userInput.length < greenChars.length
       ) {
-        //Backtracking
-        globalCounter--;
-        this.setState({
-          greenChars: greenChars.substring(0, greenChars.length - 1),
-          text: greenChars.charAt(greenChars.length - 1) + text,
-          redChar: ""
-        });
+        // User starts backspacing
+        backtrack();
       } else {
-        //In case of a mistake
+        // Highlight the incorrect character to the user
         redChar = textFirstChar;
         this.setState({ redChar: redChar });
       }
