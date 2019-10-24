@@ -9,7 +9,7 @@ $primary-font: #707070;
 }
 
 body {
-  height: 100vh;
+  height: 100%;
   background: #f4f7f4 0% 0% no-repeat padding-box;
 }
 
@@ -50,8 +50,12 @@ p {
     no-repeat padding-box;
 }
 
+.race-heading {
+  margin-bottom: 55px;
+}
+
 #progress-bar {
-  margin: 79px 0 0 0;
+  margin: 24px 0 0 0;
   width: 100%;
 }
 
@@ -73,4 +77,26 @@ p {
   #input-field {
     border: 1px solid #464646;
   }
+}
+
+.wpm-score {
+  font-family: Roboto;
+  font-size: 32px;
+}
+
+.fireworks {
+  max-width: 100%;
+}
+
+.try-again-button {
+  margin-top: 22px;
+  padding: 12px 52px;
+  border: none;
+  border-radius: 4px;
+  color: #00000099;
+  background: #e0e1e2 0% 0% no-repeat padding-box;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
 }

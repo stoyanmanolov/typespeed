@@ -6,8 +6,6 @@ const paragraphs = [
   'The word "Retro" comes from Latin word retro, meaning backward or past times. Retro style fonts are outdated or aged style fonts that imply a vintage of at least 15 or 20 years. Texts in retro style can take you or your audience to the good old memories.'
 ];
 
-// Used for indexing elements used in comparisons
-
 class Race extends React.Component {
   constructor() {
     super();
@@ -18,7 +16,10 @@ class Race extends React.Component {
       greenChars: "",
       redChar: ""
     };
+    // used for indexing in comparisons
     this.globalCounter = 0;
+    // used for timing seconds
+    this.seconds = 0;
   }
 
   componentDidMount = () => {
@@ -28,6 +29,16 @@ class Race extends React.Component {
       text: randomParagraph,
       initialTextLength: randomParagraph.length
     });
+
+    const time = () => {
+      return (this.seconds += 1);
+    };
+
+    this.interval = setInterval(time, 1000);
+  };
+
+  componentWillUnmount = () => {
+    clearInterval(this.interval);
   };
 
   handleChange = event => {
@@ -84,22 +95,32 @@ class Race extends React.Component {
   calculatePercentage = () => {
     const { initialTextLength } = this.state;
     if (initialTextLength && this.globalCounter > 0) {
-      return (this.globalCounter / initialTextLength) * 100;
+      return parseInt((this.globalCounter / initialTextLength) * 100, 10);
     }
   };
 
   render() {
     if (this.state.greenChars && this.state.text.length === 0) {
-      console.log(this.state.text.length);
-      return <Redirect to="end" />;
+      return (
+        <Redirect
+          to={{
+            pathname: "/end",
+            state: {
+              charactersCount: this.state.greenChars.length,
+              seconds: this.seconds
+            }
+          }}
+        />
+      );
     }
     return (
       <div className="container">
-        <h2>Better go fast...</h2>
+        <h2 className="race-heading">Better go fast...</h2>
         <Progress
           id="progress-bar"
           percent={this.calculatePercentage()}
           indicating
+          progress
         />
         <p className="race-text">
           <span style={{ color: "green" }}>{this.state.greenChars}</span>
