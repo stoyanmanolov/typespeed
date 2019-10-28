@@ -17,7 +17,7 @@ const Ending = props => {
   };
 
   return (
-    <div className="container">
+    <div className="ending-container container">
       <h2>Congratulations you made it</h2>
       <Progress id="progress-bar" percent="100" progress success />
       <p className="wpm-score">

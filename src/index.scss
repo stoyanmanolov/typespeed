@@ -100,3 +100,88 @@ p {
   font-size: 20px;
   font-weight: bold;
 }
+
+@media (min-width: 768px) {
+  body {
+    background: #c8dbc7 0% 0% no-repeat padding-box;
+  }
+  #root {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .container {
+    width: 702px;
+    padding: 0;
+    background: #f4f7f4 0% 0% no-repeat padding-box;
+    box-shadow: 0px 0px 10px #00000029;
+    border-radius: 13px;
+    h2 {
+      margin-top: 53px;
+    }
+    p {
+      margin: 8px 107px;
+      font-size: 16px;
+    }
+    .start-button {
+      margin-bottom: 69px;
+    }
+  }
+
+  .race-container {
+    padding: 0 47px;
+    align-items: initial;
+    .race-heading {
+      margin: 24px 0 0 0;
+      text-align: left;
+    }
+    #progress-bar {
+      margin: 8px 0 0 0;
+    }
+    .race-text {
+      margin: 8px 0 0 0;
+      font-size: 24px;
+    }
+    .typearea {
+      margin: 8px 0 40px 0;
+    }
+  }
+  .ending-container {
+    padding: 0 47px;
+    display: grid;
+    grid-template-columns: 1.2fr 2fr;
+    grid-template-areas:
+      "header header header"
+      "progress-bar progress-bar progress-bar"
+      "wpm image image"
+      "button image image";
+    h2 {
+      grid-area: header;
+      margin: 24px 0 16px 0;
+      text-align: left;
+    }
+    #progress-bar {
+      grid-area: progress-bar;
+      margin: 0;
+    }
+    .wpm-score {
+      grid-area: wpm;
+      align-self: start;
+      margin: 40px 0 0 0;
+      font-size: 32px;
+    }
+    .fireworks {
+      grid-area: image;
+      height: 180px;
+      justify-self: center;
+      margin: 8px 0 16px 0;
+    }
+    .try-again-button {
+      grid-area: button;
+      align-self: start;
+      justify-self: center;
+      margin: 0;
+    }
+  }
+}

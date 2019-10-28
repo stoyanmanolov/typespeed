@@ -14,12 +14,11 @@ class Race extends React.Component {
       initialTextLength: 0,
       userInput: "",
       greenChars: "",
-      redChar: ""
+      redChar: "",
+      seconds: 0
     };
     // used for indexing in comparisons
     this.globalCounter = 0;
-    // used for timing seconds
-    this.seconds = 0;
   }
 
   componentDidMount = () => {
@@ -29,9 +28,9 @@ class Race extends React.Component {
       text: randomParagraph,
       initialTextLength: randomParagraph.length
     });
-
+    //Set timer for calculating WPM
     const time = () => {
-      return (this.seconds += 1);
+      this.setState({ seconds: this.state.seconds + 1 });
     };
 
     this.interval = setInterval(time, 1000);
@@ -107,14 +106,14 @@ class Race extends React.Component {
             pathname: "/end",
             state: {
               charactersCount: this.state.greenChars.length,
-              seconds: this.seconds
+              seconds: this.state.seconds
             }
           }}
         />
       );
     }
     return (
-      <div className="container">
+      <div className="race-container container">
         <h2 className="race-heading">Better go fast...</h2>
         <Progress
           id="progress-bar"
