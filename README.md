@@ -1,11 +1,9 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 # Typespeed
 
 ## Description
 
-This is a game I made using React. It is something like typeracer.com.
+This is a game I made using React. It is something like typeracer.com. It is based on a design I made while working with Adobe XD.
 
-### Start
+## Start
 
 With npm start.
