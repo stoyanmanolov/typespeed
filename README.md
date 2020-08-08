@@ -2,8 +2,8 @@
 
 ## Description
 
-This is a game I made using React. It is something like typeracer.com. It is based on a design I made while working with Adobe XD.
+A typing speed testing game with React. It is something like typeracer.com. Designed with Adobe XD.
 
-## Start
+## Run
 
-With npm start.
+npm start.
