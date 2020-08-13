@@ -5,8 +5,8 @@ import Home from "../Home";
 let mockedPush = jest.fn();
 jest.mock("react-router-dom", () => ({
   useHistory: () => ({
-    push: mockedPush
-  })
+    push: mockedPush,
+  }),
 }));
 
 describe("The Home component", () => {
@@ -15,6 +15,7 @@ describe("The Home component", () => {
   it("renders correctly", () => {
     expect(wrapper).toMatchSnapshot();
   });
+
   describe("when .start-button is clicked", () => {
     it("redirects to the '/race' page", () => {
       wrapper.find(".start-button").simulate("click");

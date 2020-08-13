@@ -24,6 +24,7 @@ describe("The Race component", () => {
       expect(wrapper.state().seconds).toEqual(seconds);
     });
   });
+
   describe("when the component unmounts", () => {
     it("stops the timer", () => {
       wrapper.unmount();

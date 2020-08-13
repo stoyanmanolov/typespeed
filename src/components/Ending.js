@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { Progress } from "semantic-ui-react";
 import Fireworks from "../images/fireworks.gif";
 
-const Ending = props => {
+const Ending = (props) => {
   let history = useHistory();
   let { charactersCount, seconds } = props.location.state;
 
@@ -12,7 +12,7 @@ const Ending = props => {
     return parseInt(words * (60 / seconds), 10);
   };
 
-  const handleClick = event => {
+  const handleClick = (event) => {
     history.push("/race");
   };
 
