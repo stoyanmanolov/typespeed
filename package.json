@@ -2,7 +2,7 @@
   "name": "typespeed",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://stoyanmanolov.github.io/typespeed",
+  "homepage": "http://stoyanmanolov.github.io/typespeed/",
   "dependencies": {
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.3",
