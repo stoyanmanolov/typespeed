@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/typespeed/static/css/main.426bdc55.chunk.css",
+    "main.js": "/typespeed/static/js/main.60552f9f.chunk.js",
+    "main.js.map": "/typespeed/static/js/main.60552f9f.chunk.js.map",
+    "runtime-main.js": "/typespeed/static/js/runtime-main.5f70c8ff.js",
+    "runtime-main.js.map": "/typespeed/static/js/runtime-main.5f70c8ff.js.map",
+    "static/js/2.3ef6087c.chunk.js": "/typespeed/static/js/2.3ef6087c.chunk.js",
+    "static/js/2.3ef6087c.chunk.js.map": "/typespeed/static/js/2.3ef6087c.chunk.js.map",
+    "index.html": "/typespeed/index.html",
+    "precache-manifest.9ca028a037532adc60b6d0fa7711a2e4.js": "/typespeed/precache-manifest.9ca028a037532adc60b6d0fa7711a2e4.js",
+    "service-worker.js": "/typespeed/service-worker.js",
+    "static/css/main.426bdc55.chunk.css.map": "/typespeed/static/css/main.426bdc55.chunk.css.map",
+    "static/media/fireworks.gif": "/typespeed/static/media/fireworks.2f1c35ec.gif"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5f70c8ff.js",
+    "static/js/2.3ef6087c.chunk.js",
+    "static/css/main.426bdc55.chunk.css",
+    "static/js/main.60552f9f.chunk.js"
+  ]
+}
